@@ -1,0 +1,24 @@
+# Maintainer: Qutue hanjuntao14@gmail.com
+pkgname=ttf-hack-ligatured
+pkgver='v3.003+Nv2.1.0+FC+JBMv2.242'
+pkgrel=2
+pkgdesc='Hack Ligatured Font'
+arch=(any)
+url='https://github.com/gaplo917/Ligatured-Hack'
+license=('GPL3')
+source=("https://ghproxy.com/github.com/gaplo917/Ligatured-Hack/releases/download/${pkgver}/HackLigatured-v3.003+FC3.1+JBMv2.242.zip")
+md5sums=("67a8f2dfa4b4e00b0cc90d99efd140d0")
+package(){
+  cd "${srcdir}/${fonts}"
+  find -maxdepth 1 -type f -name 'HackJBMLigatured-*.ttf' -exec \
+    install -Dm644 -t "${pkgdir}/usr/share/fonts/TTF/HackLigatured/HackJetBrainsMono" {} \;
+
+  find -maxdepth 1 -type f -name 'HackFCLigatured-*.ttf' -exec \
+    install -Dm644 -t "${pkgdir}/usr/share/fonts/TTF/HackLigatured/HackFiraCode" {} \;
+
+  find -maxdepth 1 -type f -name 'HackNFFCLigatured-*.ttf' -exec \
+    install -Dm644 -t "${pkgdir}/usr/share/fonts/TTF/HackLigatured/HackFiraCode-NerdFont" {} \;
+
+  find -maxdepth 1 -type f -name 'HackNFJBMLigatured-*.ttf' -exec \
+    install -Dm644 -t "${pkgdir}/usr/share/fonts/TTF/HackLigatured/HackJetBrainsMono-NerdFont" {} \;
+}
